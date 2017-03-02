@@ -1,4 +1,4 @@
-FROM ubuntu:trusty
+FROM ubuntu:xenial
 
 MAINTAINER Matthias Nüßler <m.nuessler@web.de>
 
@@ -16,7 +16,7 @@ RUN apt-get update && \
 
 ADD https://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/pdftk-${PDFTK_VERSION}-src.zip /tmp/
 RUN unzip /tmp/pdftk-${PDFTK_VERSION}-src.zip -d /tmp && \
-    sed -i 's/VERSUFF=-4.6/VERSUFF=-4.8/g' /tmp/pdftk-${PDFTK_VERSION}-dist/pdftk/Makefile.Debian && \
+    sed -i 's/VERSUFF=-4.6/VERSUFF=-5/g' /tmp/pdftk-${PDFTK_VERSION}-dist/pdftk/Makefile.Debian && \
     cd /tmp/pdftk-${PDFTK_VERSION}-dist/pdftk && \
     make -f Makefile.Debian && \
     make -f Makefile.Debian install && \
